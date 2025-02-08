@@ -79,3 +79,4 @@ SELECT * FROM salaries;
 -- View the table to ensure all data has been imported correctly
 SELECT * FROM titles;
 --TESTING
+--TESTING 2 FOR PULLING INTO LOCAL

@@ -78,3 +78,4 @@ SELECT * FROM salaries;
 -- Import data from titles.csv
 -- View the table to ensure all data has been imported correctly
 SELECT * FROM titles;
+--TESTING

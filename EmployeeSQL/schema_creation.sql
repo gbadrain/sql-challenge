@@ -6,12 +6,6 @@ DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS salaries;
 DROP TABLE IF EXISTS titles;
 
--- Create departments table
-CREATE TABLE departments (
-    dept_no CHAR(4) PRIMARY KEY,
-    dept_name VARCHAR(40) NOT NULL UNIQUE
-);
-
 -- Create titles table
 CREATE TABLE titles (
     title_id VARCHAR(10) PRIMARY KEY,
@@ -29,11 +23,19 @@ CREATE TABLE employees (
     hire_date DATE NOT NULL
 );
 
--- Create salaries table
-CREATE TABLE salaries (
+
+-- Create departments table
+CREATE TABLE departments (
+    dept_no CHAR(4) PRIMARY KEY,
+    dept_name VARCHAR(40) NOT NULL UNIQUE
+);
+
+-- Create dept_manager table
+CREATE TABLE dept_manager (
+    dept_no CHAR(4),
     emp_no INT,
-    salary INT NOT NULL,
-    PRIMARY KEY (emp_no),
+    PRIMARY KEY (dept_no, emp_no),
+    FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
     FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
@@ -46,37 +48,48 @@ CREATE TABLE dept_emp (
     FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
 
--- Create dept_manager table
-CREATE TABLE dept_manager (
-    dept_no CHAR(4),
+
+
+-- Create salaries table
+CREATE TABLE salaries (
     emp_no INT,
-    PRIMARY KEY (dept_no, emp_no),
-    FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
+    salary INT NOT NULL,
+    PRIMARY KEY (emp_no),
     FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
--- Import data from departments.csv
--- View the table to ensure all data has been imported correctly
-SELECT * FROM departments;
 
--- Import data from dept_emp.csv
+-- Import data from titles.csv
 -- View the table to ensure all data has been imported correctly
-SELECT * FROM dept_emp;
-
--- Import data from dept_manager.csv
--- View the table to ensure all data has been imported correctly
-SELECT * FROM dept_manager;
+SELECT * FROM titles;
 
 -- Import data from employees.csv
 -- View the table to ensure all data has been imported correctly
 SELECT * FROM employees;
 
+
+-- Import data from departments.csv
+-- View the table to ensure all data has been imported correctly
+SELECT * FROM departments;
+
+-- Import data from dept_manager.csv
+-- View the table to ensure all data has been imported correctly
+SELECT * FROM dept_manager;
+
+
+
+-- Import data from dept_emp.csv
+-- View the table to ensure all data has been imported correctly
+SELECT * FROM dept_emp;
+
+
 -- Import data from salaries.csv
 -- View the table to ensure all data has been imported correctly
 SELECT * FROM salaries;
 
--- Import data from titles.csv
--- View the table to ensure all data has been imported correctly
-SELECT * FROM titles;
+
 --TESTING
---TESTING 2 FOR PULLING INTO LOCAL
+--TESTING 2 FOR PULLING INTO LOCAL*/
+
+
+

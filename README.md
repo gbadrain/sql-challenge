@@ -18,6 +18,8 @@ This project involves setting up a PostgreSQL database with employee and departm
 
 MODULE 9 ACTION ITEMS: Emailed by Camille Bolos, Sr Student Success Advisor.
 
+AskBCS Learning Assistant.
+
 Copilot AI.
 
 Watched YouTube videos.
